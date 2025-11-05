@@ -1,16 +1,25 @@
 export function add(numbers) {
-  return {/*write code here*/}
+  return numbers.reduce((sum, num) => sum + num, 0);
 }
 
 export function subtract(numbers) {
-  return {/*write code here*/}
+  if (numbers.length === 0) return 0;
+  return numbers.slice(1).reduce((result, num) => result - num, numbers[0]);
 }
 
 export function multiply(numbers) {
-  return {/*write code here*/}
+  if (numbers.length === 0) return 0;
+  return numbers.reduce((result, num) => result * num, 1);
 }
 
 export function divide(numbers) {
-  return {/*write code here*/}
+  if (numbers.length === 0) return 0;
+  return numbers.slice(1).reduce((result, num) => {
+    if (num === 0) {
+      console.log("⚠️ Division by zero detected!");
+      return NaN;
+    }
+    return result / num;
+  }, numbers[0]);
 }
 
